@@ -22,15 +22,15 @@ export default function HotelCard({ hotel }: HotelCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
-      <div className="p-4 sm:p-6 flex flex-col flex-grow">
-        <div className="mb-2">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-1 line-clamp-2">{hotel.name}</h3>
+      <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-grow">
+        <div className="mb-2 sm:mb-3">
+          <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-1 sm:mb-2 line-clamp-2">{hotel.name}</h3>
           <p className="text-primary-600 font-medium text-xs sm:text-sm uppercase tracking-wide">{hotel.city}</p>
         </div>
-        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 flex-grow">
+        <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-4 line-clamp-2 flex-grow">
           {hotel.shortDescription}
         </p>
-        <div className="inline-block w-full text-center bg-primary-700 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base transition-all duration-200 group-hover:bg-primary-800 group-hover:shadow-lg touch-manipulation">
+        <div className="inline-flex items-center justify-center w-full bg-primary-700 text-white py-3 sm:py-3.5 md:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base transition-all duration-200 group-hover:bg-primary-800 group-hover:shadow-lg touch-manipulation min-h-[48px]">
           View Details
         </div>
       </div>

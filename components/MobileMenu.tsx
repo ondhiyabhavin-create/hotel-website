@@ -54,13 +54,13 @@ export default function MobileMenu() {
             className="fixed inset-0 bg-black/50 z-40 md:hidden"
             onClick={closeMenu}
           />
-          <div className="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 md:hidden transform transition-transform duration-300 ease-in-out">
+          <div className="fixed top-0 right-0 h-full w-72 bg-amber-900 shadow-2xl z-50 md:hidden transform transition-transform duration-300 ease-in-out">
             <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                <h2 className="text-xl font-bold text-primary-700">Menu</h2>
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-amber-800">
+                <h2 className="text-xl sm:text-2xl font-bold text-amber-50">Menu</h2>
                 <button
                   onClick={closeMenu}
-                  className="p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+                  className="p-2 rounded-lg text-amber-50 hover:bg-amber-800 transition-colors"
                   aria-label="Close menu"
                 >
                   <svg
@@ -78,31 +78,49 @@ export default function MobileMenu() {
                   </svg>
                 </button>
               </div>
-              <nav className="flex-1 p-6">
-                <ul className="space-y-4">
+              <nav className="flex-1 p-4 sm:p-6 overflow-y-auto">
+                <ul className="space-y-2 sm:space-y-3">
                   <li>
                     <Link
                       href="#hotels"
                       onClick={closeMenu}
-                      className="block py-3 text-lg font-medium text-gray-700 hover:text-primary-700 transition-colors"
+                      className="block py-3 sm:py-4 px-4 rounded-lg text-base sm:text-lg font-medium text-amber-50 hover:bg-amber-800 hover:text-white transition-all duration-200 active:bg-amber-700"
                     >
                       Hotels
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="#about"
+                      href="/about"
                       onClick={closeMenu}
-                      className="block py-3 text-lg font-medium text-gray-700 hover:text-primary-700 transition-colors"
+                      className="block py-3 sm:py-4 px-4 rounded-lg text-base sm:text-lg font-medium text-amber-50 hover:bg-amber-800 hover:text-white transition-all duration-200 active:bg-amber-700"
                     >
                       About
                     </Link>
                   </li>
                   <li>
                     <Link
+                      href="/services"
+                      onClick={closeMenu}
+                      className="block py-3 sm:py-4 px-4 rounded-lg text-base sm:text-lg font-medium text-amber-50 hover:bg-amber-800 hover:text-white transition-all duration-200 active:bg-amber-700"
+                    >
+                      Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/gallery"
+                      onClick={closeMenu}
+                      className="block py-3 sm:py-4 px-4 rounded-lg text-base sm:text-lg font-medium text-amber-50 hover:bg-amber-800 hover:text-white transition-all duration-200 active:bg-amber-700"
+                    >
+                      Gallery
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="#contact"
                       onClick={closeMenu}
-                      className="block py-3 text-lg font-medium text-gray-700 hover:text-primary-700 transition-colors"
+                      className="block py-3 sm:py-4 px-4 rounded-lg text-base sm:text-lg font-medium text-amber-50 hover:bg-amber-800 hover:text-white transition-all duration-200 active:bg-amber-700"
                     >
                       Contact
                     </Link>

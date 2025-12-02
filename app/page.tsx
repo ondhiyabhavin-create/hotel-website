@@ -10,17 +10,17 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
       {/* Header / Navbar */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+        <nav className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2.5 sm:py-3 md:py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity">
+            <Link href="/" className="flex items-center gap-1.5 sm:gap-2 md:gap-3 hover:opacity-80 transition-opacity flex-shrink min-w-0">
               <Image
                 src="/hotel.jpg"
                 alt="Avyay Group of Hotels Logo"
                 width={40}
                 height={40}
-                className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg object-cover flex-shrink-0"
+                className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-lg object-cover flex-shrink-0"
               />
-              <span className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-primary-700 hover:text-primary-800 transition-colors whitespace-nowrap">
+              <span className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-primary-700 hover:text-primary-800 transition-colors truncate">
                 Avyay Group of Hotels
               </span>
             </Link>
@@ -28,8 +28,14 @@ export default function HomePage() {
               <Link href="#hotels" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
                 Hotels
               </Link>
-              <Link href="#about" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
+              <Link href="/about" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
                 About
+              </Link>
+              <Link href="/services" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
+                Services
+              </Link>
+              <Link href="/gallery" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
+                Gallery
               </Link>
               <Link href="#contact" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
                 Contact
@@ -41,25 +47,25 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 md:pt-24 pb-16 sm:pb-24 md:pb-32">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 md:pt-16 lg:pt-24 pb-12 sm:pb-16 md:pb-20 lg:pb-32">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-6 leading-tight px-2">
             Discover Your
-            <span className="block text-primary-700">Perfect Getaway</span>
+            <span className="block text-primary-700 mt-1 sm:mt-2">Perfect Getaway</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 mb-5 sm:mb-6 md:mb-8 leading-relaxed px-3 sm:px-4">
             Experience luxury, comfort, and unforgettable moments at our handpicked collection of premium hotels
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-3 sm:px-4">
             <a
               href="#hotels"
-              className="inline-block bg-primary-700 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg shadow-lg hover:bg-primary-800 transition-all duration-200 hover:shadow-xl active:scale-95 touch-manipulation"
+              className="inline-flex items-center justify-center bg-primary-700 text-white py-3 sm:py-3.5 md:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:bg-primary-800 transition-all duration-200 hover:shadow-xl active:scale-95 touch-manipulation min-h-[48px]"
             >
               Explore Hotels
             </a>
             <a
               href="#about"
-              className="inline-block bg-white text-primary-700 border-2 border-primary-700 py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-primary-50 transition-all duration-200 active:scale-95 touch-manipulation"
+              className="inline-flex items-center justify-center bg-white text-primary-700 border-2 border-primary-700 py-3 sm:py-3.5 md:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-base md:text-lg hover:bg-primary-50 transition-all duration-200 active:scale-95 touch-manipulation min-h-[48px]"
             >
               Learn More
             </a>
@@ -67,28 +73,175 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Features Section */}
+      <section className="bg-white border-t border-gray-100 py-10 sm:py-12 md:py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-6 px-2">
+              Why Choose Avyay Group
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-3 sm:px-4">
+              Experience world-class hospitality with our premium amenities and exceptional service
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-primary-50 to-white rounded-xl sm:rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="bg-primary-700 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Luxury Accommodation</h3>
+              <p className="text-sm sm:text-base text-gray-600">Elegantly designed rooms with premium amenities and modern comforts</p>
+            </div>
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-primary-50 to-white rounded-xl sm:rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="bg-primary-700 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">24/7 Service</h3>
+              <p className="text-sm sm:text-base text-gray-600">Round-the-clock concierge and room service for your convenience</p>
+            </div>
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-primary-50 to-white rounded-xl sm:rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="bg-primary-700 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Premium Quality</h3>
+              <p className="text-sm sm:text-base text-gray-600">Highest standards of cleanliness, comfort, and service excellence</p>
+            </div>
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-primary-50 to-white rounded-xl sm:rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="bg-primary-700 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Expert Team</h3>
+              <p className="text-sm sm:text-base text-gray-600">Professional and friendly staff dedicated to your satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="bg-gradient-to-br from-primary-700 to-primary-800 text-white py-10 sm:py-12 md:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3">5+</div>
+              <div className="text-sm sm:text-base md:text-lg text-primary-100">Premium Hotels</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3">1000+</div>
+              <div className="text-sm sm:text-base md:text-lg text-primary-100">Happy Guests</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3">24/7</div>
+              <div className="text-sm sm:text-base md:text-lg text-primary-100">Customer Support</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3">100%</div>
+              <div className="text-sm sm:text-base md:text-lg text-primary-100">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Hotel List Section */}
-      <section id="hotels" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
+      <section id="hotels" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4 px-2">
             Our Collection
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-3 sm:px-4">
             Each property is carefully selected to offer you an exceptional experience
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {HOTELS.map((hotel) => (
             <HotelCard key={hotel.slug} hotel={hotel} />
           ))}
         </div>
       </section>
 
+      {/* Services Section */}
+      <section className="bg-gray-50 py-10 sm:py-12 md:py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-6 px-2">
+              Our Services
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-3 sm:px-4">
+              Comprehensive hospitality services to make your stay memorable
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="text-primary-700 mb-4">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Room Booking</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Easy online booking system with instant confirmation and flexible cancellation policies</p>
+            </div>
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="text-primary-700 mb-4">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Event Planning</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Professional event planning services for weddings, corporate meetings, and celebrations</p>
+            </div>
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="text-primary-700 mb-4">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">24/7 Concierge</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Round-the-clock assistance for all your needs, from travel arrangements to local recommendations</p>
+            </div>
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="text-primary-700 mb-4">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Dining Services</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Exquisite dining experiences with multi-cuisine restaurants and room service</p>
+            </div>
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="text-primary-700 mb-4">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Security & Safety</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Comprehensive security measures and safety protocols for your peace of mind</p>
+            </div>
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300">
+              <div className="text-primary-700 mb-4">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Prime Locations</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Strategically located hotels with easy access to major attractions and business centers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="bg-white border-t border-gray-100 py-12 sm:py-16 md:py-24">
+      <section id="about" className="bg-white border-t border-gray-100 py-10 sm:py-12 md:py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
+          <div className="text-center mb-6 sm:mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 md:mb-6 px-2">
               About Avyay Group of Hotels
             </h2>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 px-4">

@@ -18,9 +18,9 @@ export default function HotelDetail({ hotel }: HotelDetailProps) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
       {/* Hero Image */}
-      <div className="relative aspect-video w-full rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden mb-6 sm:mb-8 shadow-soft-lg">
+      <div className="relative aspect-video w-full rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl overflow-hidden mb-4 sm:mb-6 md:mb-8 shadow-soft-lg">
         <Image
           src={hotel.images[0] || hotel.imageUrl}
           alt={hotel.name}
@@ -30,17 +30,17 @@ export default function HotelDetail({ hotel }: HotelDetailProps) {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">{hotel.name}</h1>
-          <p className="text-lg sm:text-xl text-white/90 font-medium">{hotel.city}</p>
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 lg:p-12">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-1 sm:mb-2">{hotel.name}</h1>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 font-medium">{hotel.city}</p>
         </div>
       </div>
 
       {/* Image Gallery */}
       {hotel.images && hotel.images.length > 1 && (
-        <div className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">Gallery</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <div className="mb-4 sm:mb-6 md:mb-8">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">Gallery</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
             {hotel.images.slice(1, 5).map((image, index) => (
               <div
                 key={index}
@@ -60,9 +60,9 @@ export default function HotelDetail({ hotel }: HotelDetailProps) {
       )}
 
       {/* About Section */}
-      <div className="bg-white rounded-xl sm:rounded-2xl shadow-soft p-6 sm:p-8 md:p-10 mb-6 sm:mb-8">
-        <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">About This Hotel</h2>
-        <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+      <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-soft p-4 sm:p-6 md:p-8 lg:p-10 mb-4 sm:mb-6 md:mb-8">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4">About This Hotel</h2>
+        <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
           {hotel.detailDescription}
         </p>
       </div>
@@ -71,7 +71,7 @@ export default function HotelDetail({ hotel }: HotelDetailProps) {
       <div className="text-center">
         <button
           onClick={handleWhatsAppClick}
-          className="inline-flex items-center gap-2 sm:gap-3 bg-[#25D366] text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg shadow-lg hover:bg-[#20BA5A] transition-all duration-200 hover:shadow-xl active:scale-95 touch-manipulation w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#25D366] text-white py-3 sm:py-3.5 md:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:bg-[#20BA5A] transition-all duration-200 hover:shadow-xl active:scale-95 touch-manipulation w-full sm:w-auto min-h-[48px]"
         >
           <svg
             className="w-5 h-5 sm:w-6 sm:h-6"

@@ -1,24 +1,18 @@
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { HOTELS } from '@/data/hotels';
-import HotelDetail from '@/components/HotelDetail';
-import ContactForm from '@/components/ContactForm';
+import MobileMenu from '@/components/MobileMenu';
 
-interface HotelPageProps {
-  params: Promise<{
-    slug: string;
-  }>;
-}
-
-export default async function HotelPage({ params }: HotelPageProps) {
-  const { slug } = await params;
-  const hotel = HOTELS.find((h) => h.slug === slug);
-
-  if (!hotel) {
-    notFound();
-    return null; // TypeScript guard
-  }
+export default function GalleryPage() {
+  // Collect all images from all hotels
+  const allImages = HOTELS.flatMap((hotel) =>
+    hotel.images.map((image, index) => ({
+      src: image,
+      alt: `${hotel.name} - Image ${index + 1}`,
+      hotelName: hotel.name,
+      hotelSlug: hotel.slug,
+    }))
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
@@ -26,10 +20,7 @@ export default async function HotelPage({ params }: HotelPageProps) {
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity"
-            >
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity">
               <Image
                 src="/hotel.jpg"
                 alt="Avyay Group of Hotels Logo"
@@ -41,68 +32,105 @@ export default async function HotelPage({ params }: HotelPageProps) {
                 Avyay Group of Hotels
               </span>
             </Link>
-            <div className="hidden sm:flex items-center gap-4 md:gap-6">
-              <Link
-                href="/#hotels"
-                className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm md:text-base"
-              >
+            <div className="hidden md:flex items-center gap-6 lg:gap-8">
+              <Link href="/#hotels" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
                 Hotels
               </Link>
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm md:text-base"
-              >
+              <Link href="/about" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
                 About
               </Link>
-              <Link
-                href="/services"
-                className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm md:text-base"
-              >
+              <Link href="/services" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
                 Services
               </Link>
-              <Link
-                href="/gallery"
-                className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm md:text-base"
-              >
+              <Link href="/gallery" className="text-primary-700 font-medium transition-colors text-sm lg:text-base">
                 Gallery
               </Link>
-              <Link
-                href="/#contact"
-                className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm md:text-base"
-              >
+              <Link href="/#contact" className="text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm lg:text-base">
                 Contact
               </Link>
             </div>
-            <Link
-              href="/"
-              className="sm:hidden text-gray-700 hover:text-primary-700 font-medium transition-colors text-sm"
-            >
-              ← Back
-            </Link>
+            <MobileMenu />
           </div>
         </nav>
       </header>
 
-      {/* Hotel Detail Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
-        <HotelDetail hotel={hotel} />
-        
-        {/* Contact Form Section */}
-        <section id="contact" className="mt-12 sm:mt-16 max-w-4xl mx-auto">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Have Questions?
+      {/* Hero Section */}
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 md:pt-24 pb-12 sm:pb-16">
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+            Gallery
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+            Explore our beautiful hotels and experience the luxury we offer
+          </p>
+        </div>
+      </section>
+
+      {/* Gallery Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          {allImages.map((image, index) => (
+            <Link
+              key={index}
+              href={`/hotels/${image.hotelSlug}`}
+              className="group relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-300"
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white font-semibold text-sm sm:text-base">{image.hotelName}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Hotels Section */}
+      <section className="bg-white border-t border-gray-100 py-12 sm:py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Explore Our Hotels
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 px-4">
-              Get in touch with us for any inquiries about this property
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              Click on any hotel to view more details and book your stay
             </p>
           </div>
-          <ContactForm />
-        </section>
-      </main>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {HOTELS.map((hotel) => (
+              <Link
+                key={hotel.slug}
+                href={`/hotels/${hotel.slug}`}
+                className="group bg-white rounded-xl sm:rounded-2xl shadow-soft overflow-hidden transition-all duration-300 hover:shadow-soft-lg"
+              >
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <Image
+                    src={hotel.imageUrl}
+                    alt={hotel.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">{hotel.name}</h3>
+                  <p className="text-primary-600 font-medium text-sm uppercase tracking-wide mb-3">{hotel.city}</p>
+                  <p className="text-gray-600 text-sm line-clamp-2">{hotel.shortDescription}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white mt-12 sm:mt-16 md:mt-24">
+      <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-8">
             {/* Company Info */}
@@ -135,8 +163,18 @@ export default async function HotelPage({ params }: HotelPageProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#about" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                  <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
                     About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/gallery" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                    Gallery
                   </Link>
                 </li>
                 <li>
