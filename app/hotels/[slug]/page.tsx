@@ -211,12 +211,9 @@ export default async function HotelPage({ params }: HotelPageProps) {
 
           {/* Bottom Bar */}
           <div className="border-t border-gray-800 pt-6 sm:pt-8">
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-              <p className="text-gray-500 text-xs sm:text-sm text-center sm:text-left">
+            <div className="flex justify-center items-center">
+              <p className="text-gray-500 text-xs sm:text-sm text-center">
                 © {new Date().getFullYear()} Avyay Group of Hotels. All rights reserved.
-              </p>
-              <p className="text-gray-500 text-xs sm:text-sm text-center sm:text-right">
-                Designed with ❤️ for exceptional hospitality
               </p>
             </div>
           </div>
