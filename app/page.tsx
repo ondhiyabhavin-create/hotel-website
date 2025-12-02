@@ -95,7 +95,7 @@ export default function HomePage() {
               At Avyay Group of Hotels, we believe that every journey deserves a perfect destination. Our curated collection of luxury hotels represents the finest in hospitality, combining exceptional service, stunning locations, and unforgettable experiences.
             </p>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8 px-4">
-              Whether you're seeking a beachfront paradise, a mountain retreat, or an urban escape, we have the perfect property waiting for you. Each hotel in our collection has been personally selected to ensure the highest standards of comfort, style, and service.
+              Whether you&apos;re seeking a beachfront paradise, a mountain retreat, or an urban escape, we have the perfect property waiting for you. Each hotel in our collection has been personally selected to ensure the highest standards of comfort, style, and service.
             </p>
           </div>
           

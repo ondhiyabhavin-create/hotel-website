@@ -7,7 +7,7 @@ export default function NotFound() {
         <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
         <h2 className="text-3xl font-semibold text-gray-800 mb-4">Hotel Not Found</h2>
         <p className="text-gray-600 mb-8">
-          The hotel you're looking for doesn't exist or has been removed.
+          The hotel you&apos;re looking for doesn&apos;t exist or has been removed.
         </p>
         <Link
           href="/"

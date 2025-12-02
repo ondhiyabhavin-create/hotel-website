@@ -52,7 +52,7 @@ export default function ContactForm() {
       {submitStatus === 'success' && (
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
           <p className="text-green-800 font-medium">
-            Thank you! Your message has been sent successfully. We'll get back to you soon.
+            Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
           </p>
         </div>
       )}
